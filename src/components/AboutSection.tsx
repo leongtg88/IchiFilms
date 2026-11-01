@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function AboutSection() {
   return (
     <section id="sobre-mi" className="py-24 bg-white scroll-mt-12">
@@ -6,12 +8,13 @@ export default function AboutSection() {
           
           {/* Left Column: Cover Portrait & Experience Badge */}
           <div className="lg:col-span-5 relative">
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
-              <img
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-gray-100 shadow-sm relative">
+              <Image
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf-1vYX08QrbghsVZV2efW8MJ4JQegT8E3BvwBYuvtoBWsisub9d9t8DdjmNBw2ZlKINrBkJfkQbLK_qhSYT5Js1vj-H-3R6EK46KiFZJS0j7rGnBIkP_bve-gjyKvwaSrcXFID1UZsJ0v1ZJf410U0OJFN8ish2LpcNZepRpqG0X26tD2trKkyAxOHUNqHSijM-oXe-AGiTjQ3Js45cS7dD5x1V_NGK6ZJdPkZ6lPeS8o7PKU87-C"
                 alt="Filmmaker Profesional"
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.02]"
-                referrerPolicy="no-referrer"
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover transition-transform duration-700 hover:scale-[1.02]"
               />
             </div>
             {/* Absolute badge */}

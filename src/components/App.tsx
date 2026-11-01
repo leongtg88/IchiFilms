@@ -1,13 +1,15 @@
+'use client';
+
 import { useState, useEffect } from 'react';
-import Navbar from './components/Navbar';
-import ServiceCard from './components/ServiceCard';
-import PortfolioSection from './components/PortfolioSection';
-import AboutSection from './components/AboutSection';
-import TestimonialsSection from './components/TestimonialsSection';
-import ContactForm from './components/ContactForm';
-import ProjectModal from './components/ProjectModal';
-import { SERVICES_DATA } from './data';
-import { Project } from './types';
+import Navbar from '@/components/Navbar';
+import ServiceCard from '@/components/ServiceCard';
+import PortfolioSection from '@/components/PortfolioSection';
+import AboutSection from '@/components/AboutSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
+import ContactForm from '@/components/ContactForm';
+import ProjectModal from '@/components/ProjectModal';
+import { SERVICES_DATA } from '@/data';
+import { Project } from '@/types';
 import { ArrowDown, Instagram, Linkedin, Youtube, Film } from 'lucide-react';
 
 export default function App() {

@@ -1,6 +1,9 @@
+'use client';
+
+import Image from 'next/image';
 import { useState } from 'react';
-import { Project } from '../types';
-import { PROJECTS_DATA } from '../data';
+import { Project } from '@/types';
+import { PROJECTS_DATA } from '@/data';
 import { Film, Play } from 'lucide-react';
 
 interface PortfolioSectionProps {
@@ -65,11 +68,12 @@ export default function PortfolioSection({ onSelectProject }: PortfolioSectionPr
               <div className={`relative overflow-hidden bg-gray-100 ${
                 project.aspect === 'video' ? 'aspect-[21/9]' : 'aspect-square'
               }`}>
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  referrerPolicy="no-referrer"
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
 
                 {/* Dark Vignette Overlay on Hover */}

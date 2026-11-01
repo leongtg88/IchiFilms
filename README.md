@@ -1,20 +1,54 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# IchiFilms
 
-# Run and deploy your AI Studio app
+Portafolio minimalista y de carga rápida para un filmmaker integral, especializado en comerciales, fotografía, edición y bienes raíces.
 
-This contains everything you need to run your app locally.
+Aplicación [Next.js](https://nextjs.org) (App Router) con [Tailwind CSS v4](https://tailwindcss.com) y [pnpm](https://pnpm.io).
 
-View your app in AI Studio: https://ai.studio/apps/cd418c99-8326-44db-b744-0916fe520b96
+## Requisitos
 
-## Run Locally
+- Node.js 20 o superior
+- pnpm 9 o superior (se puede activar con `corepack enable`)
 
-**Prerequisites:**  Node.js
+## Ejecutar en local
 
+1. Instalar dependencias:
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+   ```bash
+   pnpm install
+   ```
+
+2. Iniciar el servidor de desarrollo (http://localhost:3005):
+
+   ```bash
+   pnpm dev
+   ```
+
+3. Compilar para producción y arrancar:
+
+   ```bash
+   pnpm build
+   pnpm start
+   ```
+
+## Scripts
+
+| Comando           | Descripción                                |
+| ----------------- | ------------------------------------------ |
+| `pnpm dev`        | Servidor de desarrollo con Turbopack       |
+| `pnpm build`      | Compilación de producción                  |
+| `pnpm start`      | Servir la build de producción              |
+| `pnpm lint`       | ESLint (`next/core-web-vitals` + TS)       |
+| `pnpm typecheck`  | Comprobación de tipos con TypeScript       |
+
+## Estructura
+
+```
+src/
+  app/
+    layout.tsx      # Layout raíz: fuentes (Inter + JetBrains Mono) y metadata
+    page.tsx        # Página principal
+    globals.css     # Tailwind v4 + tema y utilidades personalizadas
+  components/       # Secciones de la landing (Navbar, Portafolio, Contacto, etc.)
+  data.ts           # Datos de servicios, proyectos y testimonios
+  types.ts          # Tipos compartidos
+```

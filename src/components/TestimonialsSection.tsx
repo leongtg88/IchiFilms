@@ -1,4 +1,4 @@
-import { TESTIMONIALS_DATA } from '../data';
+import { TESTIMONIALS_DATA } from '@/data';
 import { Quote } from 'lucide-react';
 
 export default function TestimonialsSection() {
@@ -21,7 +21,7 @@ export default function TestimonialsSection() {
               <div>
                 <Quote className="w-8 h-8 text-neutral-100 absolute top-6 right-6" />
                 <p className="font-sans text-gray-600 italic text-sm md:text-base leading-relaxed mb-6 pt-2 relative z-10">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </p>
               </div>
               <div className="border-t border-gray-100 pt-4 mt-2">

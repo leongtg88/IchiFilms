@@ -1,6 +1,8 @@
+'use client';
+
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Mail, Phone, MessageSquare, Check, Send } from 'lucide-react';
-import { ContactFormData } from '../types';
+import { ContactFormData } from '@/types';
 
 interface ContactFormProps {
   preselectedService: string;
@@ -18,11 +20,20 @@ export default function ContactForm({ preselectedService }: ContactFormProps) {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [prevService, setPrevService] = useState('');
 
-  useEffect(() => {
+  // Adjust the selected service during render when the prop changes
+  // (React pattern instead of calling setState inside an effect).
+  if (preselectedService !== prevService) {
+    setPrevService(preselectedService);
     if (preselectedService) {
       setFormData((prev) => ({ ...prev, servicio: preselectedService }));
-      // Scroll to contact form smoothly
+    }
+  }
+
+  // Scroll to contact form smoothly
+  useEffect(() => {
+    if (preselectedService) {
       const element = document.getElementById('contacto');
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -148,7 +159,7 @@ export default function ContactForm({ preselectedService }: ContactFormProps) {
 
             {/* Aesthetic quote/motto block */}
             <div className="border-l-2 border-gray-950 pl-6 py-2 italic text-gray-500 text-sm font-sans leading-relaxed">
-              "Una toma vale más que mil presupuestos. Definamos el estilo de tu marca y construyamos algo inolvidable."
+              &quot;Una toma vale más que mil presupuestos. Definamos el estilo de tu marca y construyamos algo inolvidable.&quot;
             </div>
           </div>
 

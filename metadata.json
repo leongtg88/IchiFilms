@@ -1,6 +1,0 @@
-{
-  "name": "IchiFilms",
-  "description": "Portafolio minimalista y de carga rápida para un filmmaker integral, especializado en comerciales, fotografía, edición y bienes raíces.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

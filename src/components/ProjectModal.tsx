@@ -1,6 +1,8 @@
-import { useState, useRef, useEffect, ChangeEvent } from 'react';
+'use client';
+
+import { useState, useRef, ChangeEvent } from 'react';
 import { X, Play, Pause, Volume2, VolumeX, Maximize2, Clock, Calendar, Briefcase, User } from 'lucide-react';
-import { Project } from '../types';
+import { Project } from '@/types';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -13,16 +15,17 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);
   const [isMuted, setIsMuted] = useState(false);
+  const [prevProject, setPrevProject] = useState<Project | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
-    if (project) {
-      setIsPlaying(false);
-      setCurrentTime(0);
-      setDuration(0);
-      // Automatically attempt to play if video source loads
-    }
-  }, [project]);
+  // Reset the player during render when a new project is selected
+  // (React pattern instead of calling setState inside an effect).
+  if (project !== prevProject) {
+    setPrevProject(project);
+    setIsPlaying(false);
+    setCurrentTime(0);
+    setDuration(0);
+  }
 
   if (!project) return null;
 
